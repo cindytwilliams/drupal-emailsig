@@ -1,0 +1,8 @@
+vscc_email_signature.content:
+  path: '/publicrelations/email-signature'
+  defaults:
+    _title: 'Create Your Email Signature'
+    _form: '\Drupal\vscc_email_signature\Form\signatureForm'
+  requirements:
+    _permission: 'access content'
+  

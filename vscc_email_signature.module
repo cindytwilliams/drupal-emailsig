@@ -1,0 +1,17 @@
+<?php
+  
+/**
+ * Implements hook_theme().
+ */
+function vscc_email_signature_theme ($existing, $type, $theme, $path) {
+  return [
+    'vscc_signature_page' =>
+    array(
+      'variables' => array(
+        'markup' => null,
+        'results' => null,
+      ), 
+      'template' => 'page--EmailSignature'
+    )
+  ];
+}

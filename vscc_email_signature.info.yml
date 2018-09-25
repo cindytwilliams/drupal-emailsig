@@ -1,0 +1,6 @@
+name: VSCC Email Signature
+description: Provides a form for people to generate their email signature
+package: VSCC
+
+type: module
+core: 8.x

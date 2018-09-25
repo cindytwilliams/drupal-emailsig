@@ -1,0 +1,98 @@
+{% if results.sig_campus == 'Cookeville' %}
+  {% set logoimg = 'cookeville.jpg' %}
+  {% set address = '1000 Neal Street | Cookeville, TN 38501' %}
+{% elseif results.sig_campus == 'Highland Crest' %}
+  {% set logoimg = 'highland.jpg' %}
+  {% set address = '150 Laureate Ave | Springfield, TN 37172' %}
+{% elseif results.sig_campus == 'Livingston' %}
+  {% set logoimg = 'livingston.jpg' %}
+  {% set address = '113 Windle Community Rd | Livingston, TN 38570' %}
+{% elseif results.sig_campus == 'Upper Cumberland' %}
+  {% set logoimg = 'logo_vert.jpg' %}
+  {% set address = '1000 Neal Street | Cookeville, TN 38501<br>113 Windle Community Rd | Livingston, TN 38570' %}
+{% else %}
+  {% set logoimg = 'logo_vert.jpg' %}
+  {% set address = '1480 Nashville Pike | Gallatin, TN 37066' %}
+{% endif %}
+
+{% trans %}
+  1. Highlight the entire signature below (including the social media icons) and press Ctrl-C to copy it<br>
+  2. Paste the signature (Ctrl-V) into your Outlook signature editor (File > Options > Mail > Signatures)<br>
+  3. For best results, set your default message format to HTML
+{% endtrans %}
+
+<div style="
+  display: block;
+  font-family: Verdana, Arial, sans-serif;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: normal;
+  line-height: normal;
+  text-align: start;
+  padding: 40px 0;"
+>
+
+  <table style="width:450px; margin:0;" border="0">
+  <tr>
+  <td style="vertical-align:top; border-style:none; border-width:0; padding:0;" width="90">
+    <a href="https://www.volstate.edu"><img src="https://www.volstate.edu/sites/default/files/logos/email/{{logoimg}}" style="border-radius:0; padding:0;" width="71" height="155" border="0" padding="0" alt="Volunteer State Community College logo"></a>
+  </td>
+  <td style="vertical-align:top; border-style:none; border-width:0; border-left:2px solid #9D2235; padding-top:0; padding-bottom:0; padding-left:0; padding-left:12px;" width="360">
+  	<div style="font-family:Verdana,Arial;font-size:9pt;color:#001A72;">
+    	<strong>{{results.sig_name}}</strong><br>
+    	<i>{{results.sig_title}}</i><br>
+    	{% if results.sig_campus != 'Upper Cumberland' %}
+    	  {{results.sig_dept}}<br>
+    	{% endif %}
+    	<br>
+    
+    	Volunteer State Community College<br>
+    	{{address|raw}}<br>
+    	
+    	{% if results.sig_fax != '' %}
+    	  {{results.sig_phone}} | {{results.sig_fax}} fax<br>
+        www.volstate.edu<br><br>
+    	{% else %}
+      	{{results.sig_phone}} | www.volstate.edu<br>
+        {{results.sig_email|lower}}<br><br>
+      {% endif %}
+  	</div>
+  	<div>
+  		  {% if results.sig_facebook != '' %}
+  		    <a href="{{results.sig_facebook}}"><img src="https://www.volstate.edu/sites/default/files/logos/email/facebook.jpg" alt="Facebook" width="16" height="16" style="border-radius:0;"></a>&nbsp;
+  		  {% endif %}
+  		  {% if results.sig_instagram != '' %}
+          <a href="{{results.sig_instagram}}"><img src="https://www.volstate.edu/sites/default/files/logos/email/instagram.jpg" alt="Instagram" width="16" height="16" style="border-radius:0;"></a>&nbsp;
+        {% endif %}
+  		  {% if results.sig_twitter != '' %}
+          <a href="{{results.sig_twitter}}"><img src="https://www.volstate.edu/sites/default/files/logos/email/twitter.jpg" alt="Twitter" width="16" height="16" style="border-radius:0;"></a>&nbsp;
+        {% endif %}
+  		  {% if results.sig_youtube != '' %}
+          <a href="{{results.sig_youtube}}"><img src="https://www.volstate.edu/sites/default/files/logos/email/youtube.jpg" alt="YouTube" width="16" height="16" style="border-radius:0;"></a>
+        {% endif %}
+  	</div>
+  </td>
+  </tr>
+  </table>
+  
+</div>
+
+<p>Not all email programs support graphics and styles in messages, so below is a text-only alternative for those who wish to use a simpler format.:</p>
+  
+  <div style="font-family:Verdana,Arial;font-size:9pt;color:#001A72;line-height: normal;">
+  	<strong>{{results.sig_name}}</strong><br>
+  	<i>{{results.sig_title}}</i><br>
+  	{{results.sig_dept}}<br>
+  	<br>
+  
+  	Volunteer State Community College<br>
+  	{{address|raw}}<br>
+  	
+  	{% if results.sig_fax != '' %}
+  	  {{results.sig_phone}} | {{results.sig_fax}} fax<br>
+      www.volstate.edu<br><br>
+  	{% else %}
+    	{{results.sig_phone}} | www.volstate.edu<br>
+    {% endif %}
+	</div>
+  
